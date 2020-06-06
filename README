@@ -2,28 +2,6 @@
 
 This is the KERN IT Challenge that we use in our recruitment process.
 
-# Objectives
+You can choose one project and share with us your project via github or gitlab
 
-@KERN IT we need a timesheet tools that help us to track our time. 
 
-# Features 
-- Login / Logout
-- View dashboard
-- View my time entries
-- Search and filter my time entries
-- Manage my projects
-- Add/Delete/Update my time entries
-
-# Tech to use
-- Python ( Flask or other framework )
-- React
-- REST or GraphQL
-- Any frontend framework
-- PostgreSQL
-
-# Instructions
-- Fork the project
-- Send us an email to jobs@kern-it.be and share with us your repo
-- You can also send us a link to test your application 
-
-Good luck
