@@ -34,5 +34,6 @@ This is the KERN IT Challenge that we use in our recruitment process.
 - Fork the project in private
 - Send us an email to jobs@kern-it.be and share with us your repo
 - You can also send us a link to test your application 
+- Your commit history is important
 
 Good luck
