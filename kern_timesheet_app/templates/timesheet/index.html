@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Timesheets{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('timesheet.create') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for timesheet in timesheets %}
+    <article class="timesheet">
+      <header>
+        <div>
+          <h1>{{ timesheet['id'] }}</h1>
+          <!-- <div class="about">by {{ timesheet['username'] }} on {{ timesheet['created'].strftime('%Y-%m-%d') }}</div> -->
+        </div>
+        {% if g.user['id'] == timesheet['user_id'] %}
+          <a class="action" href="{{ url_for('timesheet.update', id=timesheet['id']) }}">Edit</a>
+        {% endif %}
+      </header>
+      <p class="body">{{ timesheet['checkin'] }} - {{ timesheet['checkout'] }}</p>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
