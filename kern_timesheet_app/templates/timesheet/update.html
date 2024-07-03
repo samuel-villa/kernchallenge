@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit Timesheet "{{ timesheet['id'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="checkin">Checkin</label>
+    <input name="checkin" id="checkin"
+      value="{{ request.form['checkin'] or timesheet['checkin'] }}" required>
+    <label for="checkout">Checkout</label>
+    <input name="checkout" id="checkout">{{ request.form['checkout'] or timesheet['checkout'] }}</input>
+    <input type="submit" value="Save">
+  </form>
+  <hr>
+  <form action="{{ url_for('timesheet.delete', id=timesheet['id']) }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}
