@@ -10,7 +10,7 @@
     <input name="checkin" id="checkin"
       value="{{ request.form['checkin'] or timesheet['checkin'] }}" required>
     <label for="checkout">Checkout</label>
-    <input name="checkout" id="checkout">{{ request.form['checkout'] or timesheet['checkout'] }}</input>
+    <input name="checkout" id="checkout" value="{{ request.form['checkout'] or timesheet['checkout'] }}">
     <input type="submit" value="Save">
   </form>
   <hr>

@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block content %}
-  <form method="post">
-    <label for="timecheck">Time Check</label>
-    <input type="submit" value="Save">
+  <form method="post" action="{{ url_for('timesheet.checkin')}}">
+    <input type="submit" value="Check In">
+  </form>
+
+  <form method="post" action="{{ url_for('timesheet.checkout') }}">
+    <input type="submit" value="Check Out">
   </form>
 {% endblock %}

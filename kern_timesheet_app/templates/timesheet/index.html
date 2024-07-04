@@ -3,7 +3,9 @@
 {% block header %}
   <h1>{% block title %}Timesheets{% endblock %}</h1>
   {% if g.user %}
-    <a class="action" href="{{ url_for('timesheet.create') }}">New</a>
+    <form class="action" method="post" action="{{ url_for('timesheet.create') }}">
+      <button>New</button>
+    </form>
   {% endif %}
 {% endblock %}
 
@@ -14,11 +16,25 @@
         <div>
           <h1>{{ timesheet['id'] }}</h1>
         </div>
+
+        <div>
+          <form method="post" action="{{ url_for('timesheet.checkin', id=timesheet['id'])}}">
+            <input type="submit" value="Check In">
+          </form>
+          <form method="post" action="{{ url_for('timesheet.checkout', id=timesheet['id']) }}">
+            <input type="submit" value="Check Out">
+          </form>
+        </div>
+
+        <div>
+          <p class="body">{{ timesheet['checkin'] }} - {{ timesheet['checkout'] }}</p>
+        </div>
         {% if g.user['id'] == timesheet['user_id'] %}
-          <a class="action" href="{{ url_for('timesheet.update', id=timesheet['id']) }}">Edit</a>
+          <div>
+            <a class="action" href="{{ url_for('timesheet.update', id=timesheet['id']) }}">Edit</a>
+          </div>
         {% endif %}
       </header>
-      <p class="body">{{ timesheet['checkin'] }} - {{ timesheet['checkout'] }}</p>
     </article>
     {% if not loop.last %}
       <hr>
